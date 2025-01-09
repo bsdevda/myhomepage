@@ -276,24 +276,25 @@
         </div>
     </div>
 
-    <div class="second-section">
-        <div class="secondsub-section">
+ <div class="form-section">
             <p>I've heard this graduate program from:</p>
-            <div class="graduateoption">
+            <div class="checkbox-group">
                 <label><input type="checkbox" name="source" value="media"> Media</label>
                 <label><input type="checkbox" name="source" value="ad"> Ad</label>
                 <label><input type="checkbox" name="source" value="agency"> Agency</label>
                 <label><input type="checkbox" name="source" value="other"> Other</label>
             </div>
         </div>
-        <div class="secondsub-sectiontwo">
-            <p>When I finish my study, I will:</p>
-            <label><input type="radio" name="plan" value="return"> Return to my country</label><br/>
-            <label><input type="radio" name="plan" value="job"> Find a job in Europe</label><br/>
-            <label><input type="radio" name="plan" value="training"> Do the practical training and then decide</label><br/>
-        </div>
-    </div>
 
+        <!-- Plans after study section -->
+        <div class="form-section">
+            <p>When I finish my study, I will:</p>
+            <div class="radio-group">
+                <label><input type="radio" name="plan" value="return" required> Return to my country</label>
+                <label><input type="radio" name="plan" value="job"> Find a job in Europe</label>
+                <label><input type="radio" name="plan" value="training"> Do the practical training and then decide</label>
+            </div>
+        </div>
     <!-- Submit Button -->
     <div class="submit-button">
         <input type="submit" value="Submit">
