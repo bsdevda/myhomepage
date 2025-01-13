@@ -382,7 +382,23 @@ akfnasd iofgndfgnsdiolg
         </div>
 
         <input type="email" name="email" id="email" autocomplete="off" />
+        <span id="email-error" style="color: red; font-size: 12px"></span>
       </form>
     </div>
   </body>
+  <script>
+    const emailInput = document.getElementById("email");
+    const emailError = document.getElementById("email-error");
+
+    emailInput.addEventListener("input", () => {
+      const emailValue = emailInput.value;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (emailValue && !emailRegex.test(emailValue)) {
+        emailError.textContent = "Please enter a valid email address.";
+      } else {
+        emailError.textContent = "";
+      }
+    });
+  </script>
 </html>
