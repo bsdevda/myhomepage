@@ -102,8 +102,8 @@
 
             <label for="country">I am from:</label>
             <select id="country" name="country">
-              <option value="" disabled selected>Select your country</option>
-              <option value="AF">Afghanistan</option>
+              <option value="" disabled>Select your country</option>
+              <option value="AF" selected>Afghanistan</option>
               <option value="AL">Albania</option>
               <option value="DZ">Algeria</option>
               <option value="AD">Andorra</option>
@@ -308,8 +308,8 @@
 
             <label for="program">Program:</label>
             <select id="program" name="program">
-              <option value="">Select your program</option>
-              <option value="cs">Cybersecurity</option>
+              <option value="" disabled>Select your program</option>
+              <option value="cs" selected>Cybersecurity</option>
               <option value="ds">Data Science</option>
               <option value="se">Software Engineering</option>
               <option value="bd&ai">
@@ -377,7 +377,7 @@
                 <p><b>B) Rapid Application Development model(also known as RAD):</b> <br>The RAD model focuses on quickly building software through four phases: planning, getting user input, construction, and 
                     delivering the final product. It’s faster and cheaper and helps keep customers happy. This model works well when the requirements are clear, and the project is simple with 
                     low risk.</br></p>
-                <p><b>C) Agile Models:</b><br> Agile is flexible and focuses on delivering small updates regularly. It encourages teamwork and getting feedback from the customer. 
+                <p><b>C) Agile Model:</b><br> Agile is flexible and focuses on delivering small updates regularly. It encourages teamwork and getting feedback from the customer. 
                     I think it works best for projects where the requirements change a lot and for projects that need to adapt quickly.
                 </br></p>
             </div>
@@ -411,7 +411,7 @@
         <div class="csstypes">
             <h3>I have used <a href="https://www.w3schools.com/css/default.asp">CSS</a> in this webpage and  there are three ways to include CSS in a webpage as follows.</h3>
             <p><b>a) Inline CSS:</b> <br>This is when you apply CSS directly to an HTML element using the style attribute. It’s useful for quick, one-off changes, but not ideal for large projects.</br></p>
-            <p><b>b) Internal CSS:</b> <br>Here, CSS is placed between the style tags in the HTML file itself. It’s good for small projects or when you need to add custom styles that only apply to that specific page.</br></p>
+            <p><b>b) Internal CSS:</b> <br>Here, CSS is placed between the style tags in the HTML file itself. It’s good for small projects or when you need to add custom styles that only apply to that specific page. (I have used internal CSS for this page)</br></p>
             <p><b>c) External CSS:</b> <br>This method involves creating a separate CSS file and linking it to the HTML document with a link tag in the head section. 
                 It’s great for organizing styles, especially for larger websites where you want to apply the same styles to multiple pages. </br></p>
         </div>
@@ -435,7 +435,37 @@
 
         
         <label for="email">You can reach me out:</label> 
-        <input type="email" name="email" id="email"/>
+        <input type="email" name="email" id="email" autocomplete="off"/>
+        <span id="email-error" style="color: red; font-size: 12px"></span>
+      </form>
     </div>
   </body>
+  <script>
+    const emailInput = document.getElementById("email");
+    const name = document.getElementById("name");
+    const middleName = document.getElementById("m_initial");
+    const lastName = document.getElementById("lname");
+    const emailError = document.getElementById("email-error");
+
+    emailInput.addEventListener("input", () => {
+      const emailValue = emailInput.value;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (emailValue && !emailRegex.test(emailValue)) {
+        emailError.textContent = "Please enter a valid email address.";
+      } else {
+        emailError.textContent = "";
+      }
+    });
+
+    name.addEventListener("input", () => {
+      name.value = name.value.replace(/[^a-zA-Z]/g, "");
+    });
+    middleName.addEventListener("input", () => {
+      middleName.value = middleName.value.replace(/[^a-zA-Z]/g, "");
+    });
+    lastName.addEventListener("input", () => {
+      lastName.value = lastName.value.replace(/[^a-zA-Z]/g, "");
+    });
+  </script>
 </html>
